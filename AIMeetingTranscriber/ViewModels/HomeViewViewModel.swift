@@ -20,7 +20,7 @@ class HomeViewViewModel: ObservableObject {
     @Published var outputURL: URL? = nil
     @Published var meetingText: String = ""
     @Published var meetingSummary: String = ""
-
+    private let speechRecognizer = SpeechRecognizerService()
     private let audioService = AudioRecordingService()
     private let summarizationService = SummarizationService()
 
@@ -41,5 +41,19 @@ class HomeViewViewModel: ObservableObject {
     
     func startTextSummary() async throws {
         meetingSummary = try await summarizationService.summarize(text: meetingText)
+    }
+    
+    func startAudioTranscribe() async throws {
+        speechRecognizer.resetTranscript()
+        speechRecognizer.startTranscribing()
+        print("Start transcribingg....")
+        isRecording = true
+    }
+    
+    func endAudioTranscribe() {
+        speechRecognizer.stopTranscribing()
+        meetingText = speechRecognizer.transcript
+        print("End transcribingg....")
+        isRecording = false
     }
 }

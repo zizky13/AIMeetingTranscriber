@@ -11,6 +11,7 @@ struct RecordingResultView: View {
     let audioURL: URL
 
     @StateObject private var player = AudioPlaybackService()
+    @StateObject private var viewModel = HomeViewViewModel()
 
     var body: some View {
         VStack(spacing: 24) {
