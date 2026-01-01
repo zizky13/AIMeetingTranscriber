@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+internal import CoreData
 
 @main
 struct AIMeetingTranscriberApp: App {
+    let persistanceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(context: persistanceController.container.viewContext)
+                .environment(\.managedObjectContext,
+                              persistanceController.container.viewContext)
         }
     }
 }
