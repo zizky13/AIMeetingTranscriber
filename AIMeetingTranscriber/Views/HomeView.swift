@@ -80,7 +80,7 @@ struct HomeView: View {
                                 viewModel.endAudioTranscribe()
                             } else {
                                 try await viewModel.requestPermission()
-                                try await viewModel.startAudioTranscribe()
+                                viewModel.startAudioTranscribe()
                             }
                         } catch {
                             print(error.localizedDescription)
@@ -115,19 +115,19 @@ struct HomeView: View {
                 }
                 .frame(height: 250)
 
-//                NavigationLink(
-//                    isActive: $showResult,
-//                    destination: {
-//                        if let url = viewModel.outputURL {
-//                            RecordingResultView(audioURL: url, context: <#NSManagedObjectContext#>)
-//                        } else {
-//                            EmptyView()
-//                        }
-//                    },
-//                    label: {
-//                        EmptyView()
-//                    }
-//                )
+                NavigationLink(
+                    isActive: $showResult,
+                    destination: {
+                        if let url = viewModel.outputURL {
+                            RecordingResultView(audioURL: url, context: context)
+                        } else {
+                            EmptyView()
+                        }
+                    },
+                    label: {
+                        EmptyView()
+                    }
+                )
             }
             .padding()
         }
