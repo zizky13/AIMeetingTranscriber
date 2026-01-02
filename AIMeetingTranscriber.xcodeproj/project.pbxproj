@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B9A30FAA2F07CFD500F99798 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B99E2F932EFD0CA50093E103 /* AIMeetingTranscriber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIMeetingTranscriber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B9A30FC92F07D2BC00F99798 /* Exceptions for "AIMeetingTranscriber" folder in "AIMeetingTranscriber" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B99E2F922EFD0CA50093E103 /* AIMeetingTranscriber */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B99E2F952EFD0CA50093E103 /* AIMeetingTranscriber */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B9A30FC92F07D2BC00F99798 /* Exceptions for "AIMeetingTranscriber" folder in "AIMeetingTranscriber" target */,
+			);
 			path = AIMeetingTranscriber;
 			sourceTree = "<group>";
 		};
@@ -32,6 +50,7 @@
 		B99E2F8A2EFD0CA50093E103 = {
 			isa = PBXGroup;
 			children = (
+				B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */,
 				B99E2F952EFD0CA50093E103 /* AIMeetingTranscriber */,
 				B99E2F942EFD0CA50093E103 /* Products */,
 			);
@@ -111,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A30FAA2F07CFD500F99798 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +149,7 @@
 /* Begin XCBuildConfiguration section */
 		B99E2F9C2EFD0CA60093E103 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -193,6 +214,7 @@
 		};
 		B99E2F9D2EFD0CA60093E103 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -250,6 +272,7 @@
 		};
 		B99E2F9F2EFD0CA60093E103 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -258,6 +281,7 @@
 				DEVELOPMENT_TEAM = XWM9X5R5VK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AIMeetingTranscriber/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses microphone to record audio";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
@@ -286,6 +310,7 @@
 		};
 		B99E2FA02EFD0CA60093E103 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9A30FA92F07CFD500F99798 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +319,7 @@
 				DEVELOPMENT_TEAM = XWM9X5R5VK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AIMeetingTranscriber/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses microphone to record audio";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";

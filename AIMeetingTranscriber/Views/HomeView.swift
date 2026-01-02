@@ -44,6 +44,13 @@ struct HomeView: View {
                 if viewModel.meetingText.isEmpty == false {
                     Text(viewModel.meetingText)
                 }
+                
+                if case .error(let message) = viewModel.state {
+                    Text(message)
+                        .foregroundColor(.red)
+                        .font(.caption)
+                }
+                
                 Button("Summarize & Save") {
                     Task {
                         await viewModel.startTextSummaryAndSave()

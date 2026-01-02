@@ -17,11 +17,13 @@ enum SummaryState {
 }
 
 class HomeViewViewModel: ObservableObject {
+    
     //MARK: - UI State
     @Published var isRecording: Bool = false
     @Published var outputURL: URL? = nil
     @Published var meetingText: String = ""
     @Published var meetingSummary: String = ""
+    @Published var state: SummaryState = .idle
 
     //MARK: - Services
     private let speechRecognizer = SpeechRecognizerService()
@@ -72,17 +74,23 @@ class HomeViewViewModel: ObservableObject {
 
     // MARK: - Summary + Persist
     func startTextSummaryAndSave() async {
-        do {
-            meetingSummary =
-                try await summarizationService
-                .summarize(text: meetingText)
+        state = .loading
 
-            saveMeeting()  // 🔥 FINAL STEP
+        do {
+            let summary = try await summarizationService.summarize(text: meetingText)
+            meetingSummary = summary
+            state = .success(summary)
+
+            saveMeeting()
+
+        } catch let error as SummarizationError {
+            state = .error(error.localizedDescription)
+
         } catch {
-            print("❌ Summary error:", error.localizedDescription)
+            state = .error("Unexpected error occurred.")
         }
     }
-
+    
     // MARK: - Transcription
     func startAudioTranscribe() {
         speechRecognizer.resetTranscript()
